@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: #daddf1;
+}
+
+h1 {
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+}
