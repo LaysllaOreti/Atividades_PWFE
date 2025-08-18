@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorteador de Bingo</title>
+</head>
+<body>
+    <h1>Sorteador de Bingo</h1>
+    <button onclick="sortearNumero()">Sortear</button>
+    <p id="numeroSorteado"></p>
+    
+    <script>
+        const numeros = Array.from({length: 75}, (_, i) => i + 1);
+        const numerosSorteados = [];
+        let proximoNumeroIndex = 0;
+        
+        function sortearNumero() {
+            if (proximoNumeroIndex < numeros.length) {
+                const numeroSorteado = numeros[proximoNumeroIndex];
+                document.getElementById("numeroSorteado").textContent = "Número Sorteado: " + numeroSorteado;
+                proximoNumeroIndex++;
+            } else {
+                document.getElementById("numeroSorteado").textContent = "Todos os números foram sorteados!";
+            }
+        }
+    </script>
+</body>
+</html>
