@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bingo</title>
+    <title>Bingo da Lay</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="imagens/iconCupcake.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 </head>
 <body>
+    <script src="script.js"></script>
+    
     <header>
-        <p>BINGO DA DS18</p>
+        <p>BINGO DA LAY</p>
     </header>
-
-    <section id="secaoTabela" aria-label="Tabela do Bingo">
-        <div id="tabela">
+    
+    <section id="sectionTable" aria-label="Tabela do Bingo">
+        
+        <div id="table">
             <table>
                 <tbody>
                     <tr>
                         <th id="b">B</th>
-
+                        
                         <td>1</td>
                         <td>2</td>
                         <td>3</td>
@@ -35,10 +39,10 @@
                         <td>14</td>
                         <td>15</td>
                     </tr>
-
+                    
                     <tr>
                         <th id="i">I</th>
-
+                        
                         <td>16</td>
                         <td>17</td>
                         <td>18</td>
@@ -55,10 +59,10 @@
                         <td>29</td>
                         <td>30</td>
                     </tr>
-
+                    
                     <tr>
                         <th id="n">N</th>
-
+                        
                         <td>31</td>
                         <td>32</td>
                         <td>33</td>
@@ -75,10 +79,10 @@
                         <td>44</td>
                         <td>45</td>
                     </tr>
-
+                    
                     <tr>
                         <th id="g">G</th>
-
+                        
                         <td>46</td>
                         <td>47</td>
                         <td>48</td>
@@ -95,10 +99,10 @@
                         <td>59</td>
                         <td>60</td>
                     </tr>
-
+                    
                     <tr>
                         <th id="o">O</th>
-
+                        
                         <td>61</td>
                         <td>62</td>
                         <td>63</td>
@@ -118,16 +122,17 @@
                 </tbody>
             </table>
         </div>
-
-        <div id="opcoes">
-            <h1 id="tituloSorteador">Sorteador</h1>
-            <div id="botoes">
-                <button class="botoesOpcoes">SORTEAR</button>
-                <button class="botoesOpcoes">BINGO</button>
-                <button class="botoesOpcoes">RESETAR</button>
-            </div>
-        </div>
     </section>
+    
+    <div id="options">
+        <h1 id="drawTitle">Sorteador</h1>
+        <div id="buttons">
+            <button class="drawButton optionsButtons">SORTEAR</button>
+            <button class="bingoButton optionsButtons">BINGO</button>
+            <button class="resetButton optionsButtons">RESETAR</button>
+        </div>
+    </div>
+    
 </body>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </html>
