@@ -8,10 +8,10 @@ const bingoButton = document.querySelector(".bingoButton"); //pega o botão "BIN
 const drawTitle = document.getElementById("drawTitle"); //pega o <h1> que vai mostrar o número que foi sorteado
 
 //cria o container do histórico dos números
-const historicoDiv = document.createElement("div"); //vai criar uma div por meio do JS 
-historicoDiv.id = "historicoBingo"; //cria um id para estilizar e criar
-historicoDiv.innerHTML = "<h2>Histórico:</h2><div id='numerosHistorico'></div>"; //mensagem inicial para quando nenhum número for sorteado ainda
-document.getElementById("options").appendChild(historicoDiv); //coloca a div dentro da seção criada para as opções
+const historicoDiv = document.createElement("div"); //vai criar uma div pelo JS 
+historicoDiv.id = "historicoBingo"; //cria um id pra estilizar depois
+historicoDiv.innerHTML = "<h2>Histórico:</h2><div id='numerosHistorico'></div>"; //texto inicial quando não tem número sorteado
+document.getElementById("options").appendChild(historicoDiv); //coloca a div dentro da seção de opções
 
 //criando as funções
 
@@ -27,71 +27,71 @@ function atualizarHistorico() { //redesenha o histórico
 
 //vai marcar/inserir o número na tela
 function marcarTabela(numero) { //vai "colorir" o número correspondente ao que foi sorteado
-  const celulas = document.querySelectorAll("#table td"); //vai pegar todas as células de número
-  celulas.forEach((td) => { //percorre por todas as células
-    if (td.textContent == numero) { //vai comparar o texto inserido na célula e o número que foi sorteado
-      td.classList.add("selectedNumber"); //vai adicionar a classe que foi criada para mudar o estilo 
+  const celulas = document.querySelectorAll("#table td"); //vai pegar todas as células da tabela
+  celulas.forEach((td) => { //percorre todas as células
+    if (td.textContent == numero) { //compara o texto da célula com o número sorteado
+      td.classList.add("selectedNumber"); //adiciona a classe que muda o estilo 
     }
   });
 }
 
 //sorteia um número aleatório
-function sortearNumeroBingo() { //lógica utilizada para sortear sem que se repita
-  if (numeros.length === 0) { //se não tiver mais nenhum número para sortear
-    drawTitle.textContent = "Todos os números já foram sorteados!"; //irá exibir uma mensagem no título
-    return; //sairá da função
+function sortearNumeroBingo() { //lógica pra sortear sem repetir
+  if (numeros.length === 0) { //se não tiver mais nenhum número
+    drawTitle.textContent = "Todos os números já foram sorteados!"; //mensagem de aviso
+    return; //sai da função
   }
 
-  const indice = Math.floor(Math.random() * numeros.length); //pega um número aleatório do array "números"
-  const numeroSorteado = numeros[indice]; //lê o número
+  const indice = Math.floor(Math.random() * numeros.length); //pega um número aleatório do array "numeros"
+  const numeroSorteado = numeros[indice]; //lê o número sorteado
 
   //vai atualizar a array
-  historicoBingo.push(numeroSorteado); //guarda o número sorteado no histórico
+  historicoBingo.push(numeroSorteado); //guarda no histórico
   numeros.splice(indice, 1); //remove ele do array de disponíveis
 
   //atualiza na tela
-  drawTitle.textContent = numeroSorteado; //mostra o número sorteado no lugar no título
-  marcarTabela(numeroSorteado); //vai pintar a célula da tabela com o número correspondente
-  atualizarHistorico(); //redesenha o histórico que foi atualizado
+  drawTitle.textContent = numeroSorteado; //mostra o número sorteado no título
+  marcarTabela(numeroSorteado); //pinta a célula da tabela
+  atualizarHistorico(); //redesenha o histórico atualizado
 }
 
 //função para resetar todo o histório e toda a partida
-function resetarBingo() { //volta no estado inicial
-  numeros = Array.from({ length: 75 }, (_, i) => i + 1); //vai recriar todo o array (todos os números de 1 a 75)
-  historicoBingo = []; //limpar histórico
-  drawTitle.textContent = "Sorteador"; //volta com o título Inicial
-  atualizarHistorico(); //redesenha todo o histórico
+function resetarBingo() { //volta pro estado inicial
+  numeros = Array.from({ length: 75 }, (_, i) => i + 1); //recria o array (1 a 75)
+  historicoBingo = []; //limpa histórico
+  drawTitle.textContent = "Sorteador"; //volta o título padrão
+  atualizarHistorico(); //redesenha o histórico
 
-  //remover todas as marcações (célular preenchidas) da tabela
-  document.querySelectorAll("#table td").forEach((td) => { //vai pegar todas as células
-    td.classList.remove("selectedNumber"); //tira a classe "selectedNumber"
+  //remove todas as marcações da tabela
+  document.querySelectorAll("#table td").forEach((td) => { //pega todas as células
+    td.classList.remove("selectedNumber"); //remove a classe de destaque
   });
 }
 
 /*Estilização do jogador de confetes*/
-function jogarConfete() { //vai criar várias partículas "caindo"
-  const duration = 4000; //com duração de 4 segundos
-  const end = Date.now() + duration; //momento que deve parar
+function jogarConfete() { //vai criar várias partículas caindo
+  const duration = 4000; //duração total de 4 segundos
+  const end = Date.now() + duration; //hora que deve parar
 
-  (function frame() { //função chamada imediata recursiva, ou seja, ela se autoexecuta e se agenda de novo para execução futura
+  (function frame() { //função autoexecutável recursiva
     //criará uma partícula por frame
-    const colors = ["#85284a", "#89465d", "#D81B60", "#b35370", "#cb5a7e", "#d1708a"]; //paleta de cores para os confetes
-    const particle = document.createElement("div"); //cria uma div para ser o "confete"
-    particle.classList.add("confeteBingo"); //aplicação da classe
-    particle.style.left = Math.random() * 100 + "vw"; // posição horizontal aleatória (0 a 100% da largura da viewport)
-    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; //random para escolher uma cor aleatória
-    document.body.appendChild(particle); //vai "injetar" ele em cima do body para dar o efeito que está caindo sobre tudo
+    const colors = ["#85284a", "#89465d", "#D81B60", "#b35370", "#cb5a7e", "#d1708a"]; //cores dos confetes
+    const particle = document.createElement("div"); //cria uma div pro confete
+    particle.classList.add("confeteBingo"); //aplica a classe
+    particle.style.left = Math.random() * 100 + "vw"; //posição horizontal aleatória
+    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; //cor aleatória
+    document.body.appendChild(particle); //injeta no body
 
-    //vai remover depois de ocorrer a animação, para não acumular nada no DOM
-    setTimeout(() => particle.remove(), 4000); //depois de 4 segundos, tira o elemento
+    //remove depois da animação pra não acumular
+    setTimeout(() => particle.remove(), 4000); //4 segundos depois remove
 
-    if (Date.now() < end) { //caso ainda o tempo total não tenha passado
-      requestAnimationFrame(frame); //vai agendar a próxima partícula no próximo frame
+    if (Date.now() < end) { //se ainda não passou o tempo
+      requestAnimationFrame(frame); //agenda a próxima partícula
     }
   })(); 
 }
 
 //criando eventos
-drawButton.addEventListener("click", sortearNumeroBingo); //quando "SORTEAR" for clicado, executa 'sortearNumeroBingo()'
-resetButton.addEventListener("click", resetarBingo); //quando "RESETAR" for clicado, executa 'resetarBingo()'
-bingoButton.addEventListener("click", jogarConfete); //quando "BINGO" for clicado, executa 'jogarConfete()'
+drawButton.addEventListener("click", sortearNumeroBingo); //quando clicar em "SORTEAR"
+resetButton.addEventListener("click", resetarBingo); //quando clicar em "RESETAR"
+bingoButton.addEventListener("click", jogarConfete); //quando clicar em "BINGO"
