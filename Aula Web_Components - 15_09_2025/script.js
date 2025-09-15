@@ -1,11 +1,16 @@
-class HelloWorld extends HTMLElement{
+class olaMundo extends HTMLElement{
     constructor(){
-        super()  //classe pai    
+        super();
     }
-    
-    connectedCalback(){
-        this.innerHTML = "<p>Hello World!</p>";
+ 
+    connectedCallback(){
+        this.innerHTML = "<p> Olá mundo </p>";
     }
 }
-
-customElements.define("hello-world", HelloWorld)
+customElements.define("ola-mundo",olaMundo)
+ 
+ 
+ 
+ 
+ 
+ 
