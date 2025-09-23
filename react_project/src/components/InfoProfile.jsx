@@ -10,6 +10,7 @@ export default function InfoProfile({ nome, nascimento, cidade, profissao, orige
         <li><strong>Profissão:</strong> {profissao}</li>
         <li><strong>Origem:</strong> {origem}</li>
       </ul>
+      
       <p>{descricao}</p>
     </div>
   );

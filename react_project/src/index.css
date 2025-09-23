@@ -22,7 +22,7 @@ body {
   max-width: 900px;
 }
 
-.img-box img {
+.imgBox img {
   width: 280px;
   height: auto;
   border-radius: 6px;
