@@ -1,13 +1,11 @@
-import './App.css'
+import React from "react";
+import Profile from "./Profile";
+import "./index.css";
 
-function App(){
+export default function App() {
   return (
-    <>
-      <header>
-        <h1>Hello World!</h1>
-      </header>
-    </>
-  )
+    <div className="app">
+      <Profile />
+    </div>
+  );
 }
-
-export default App
