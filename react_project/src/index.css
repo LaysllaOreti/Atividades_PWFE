@@ -14,39 +14,48 @@ body {
 
 .card {
   display: flex;
+  flex-wrap: wrap; 
   gap: 30px;
   background: #fcf9f9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 6px 10px rgba(0,0,0,0.15);
   max-width: 900px;
+  width: 90%; 
 }
 
 .imgBox img {
   width: 280px;
   height: auto;
   border-radius: 6px;
+  object-fit: cover; 
+}
+
+.info {
+  flex: 1; 
 }
 
 .info h2 {
-  margin: 20px auto;
+  margin: 0 0 20px 0;
   color: #7a0c0c;
+  font-size: 28px;
 }
 
 .info ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 80px;
+  margin: 0 0 20px 0;
 }
 
 .info li {
-  margin: 4px 0;
+  margin-bottom: 10px;
   color: #2c3a47;
-  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .info p {
   margin-top: 10px;
   color: #3f3e3e;
   font-size: 17px;
+  line-height: 1.5;
 }

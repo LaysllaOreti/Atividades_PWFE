@@ -1,17 +1,22 @@
 import React from "react";
 
-export default function InfoProfile({ nome, nascimento, cidade, profissao, origem, descricao }) {
+export default function InfoProfile(props) {
   return (
     <div className="info">
-      <h2>{nome}</h2>
+
+      {/* mostra o nome do usuário */}
+      <h2>{props.nome}</h2>
+
+      {/* lista com os detalhes do perfil do personagem */}
       <ul>
-        <li><strong>Data de Nascimento:</strong> {nascimento}</li>
-        <li><strong>Cidade Natal:</strong> {cidade}</li>
-        <li><strong>Profissão:</strong> {profissao}</li>
-        <li><strong>Origem:</strong> {origem}</li>
+        <li><strong>Data de Nascimento:</strong> {props.nascimento}</li>
+        <li><strong>Cidade Natal:</strong> {props.cidade}</li>
+        <li><strong>Profissão:</strong> {props.profissao}</li>
+        <li><strong>Origem:</strong> {props.origem}</li>
       </ul>
       
-      <p>{descricao}</p>
+      {/* descrição do personagem */}
+      <p>{props.descricao}</p>
     </div>
   );
 }
